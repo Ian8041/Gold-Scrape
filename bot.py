@@ -12,14 +12,14 @@ VALUE_SELECTOR = ".font-mulish.mb-\\[3px\\].text-4xl.font-bold.leading-normal.tr
 def send_telegram_message(text):
     requests.get(
         f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage",
-        params={"chat_id": GRP_CHAT_IDS, "text": text}
+        params={"chat_id": GRP_CHAT_ID, "text": text}
     )
 
 def send_telegram_photo(filepath):
     with open(filepath, "rb") as f:
         requests.post(
             f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto",
-            data={"chat_id": GRP_CHAT_IDS},
+            data={"chat_id": GRP_CHAT_ID},
             files={"photo": f}
         )
 
