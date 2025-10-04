@@ -5,21 +5,21 @@ from playwright.sync_api import sync_playwright
 # --- CONFIG ---
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
-GRP_CHAT_ID = ("GRP_CHAT_ID")
+GRP_CHAT_IDS = ("GRP_CHAT_IDS")
 URL = "https://www.kitco.com/charts/gold"
 VALUE_SELECTOR = ".font-mulish.mb-\\[3px\\].text-4xl.font-bold.leading-normal.tracking-\\[1px\\]"
 
 def send_telegram_message(text):
     requests.get(
         f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage",
-        params={"chat_id": GRP_CHAT_ID, "text": text}
+        params={"chat_id": GRP_CHAT_IDS, "text": text}
     )
 
 def send_telegram_photo(filepath):
     with open(filepath, "rb") as f:
         requests.post(
             f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto",
-            data={"chat_id": GRP_CHAT_ID},
+            data={"chat_id": GRP_CHAT_IDS},
             files={"photo": f}
         )
 
