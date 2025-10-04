@@ -28,4 +28,5 @@ jobs:
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
+          GRP_CHAT_IDS: ${{ secrets.GRP_CHAT_IDS }}
         run: python bot.py
